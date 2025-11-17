@@ -1,0 +1,1274 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Maya Maria Biscotaria PET</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .header-bg {
+      background-color: #f39c12;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" style="opacity:0.2;"><circle cx="50" cy="50" r="40" fill="none" stroke="%23e67e22" stroke-width="5" /><circle cx="50" cy="50" r="20" fill="%23f7f1e3" /></svg>');
+      background-repeat: repeat;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .header-content {
+      position: relative;
+      padding-top: 50px;
+    }
+    
+    .logo-circle {
+      background-color: #fff;
+      border: 4px solid #f39c12;
+      border-radius: 50%;
+      padding: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo-circle img {
+      max-width: 100px;
+      height: auto;
+      border-radius: 50%;
+    }
+    
+    .header-main-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 2px solid #27ae60;
+    }
+    
+    .header-main-info h1 {
+      color: #27ae60;
+      margin: 0;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    
+    .horario-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    
+    .qr-code {
+      width: 100px;
+      height: 120px;
+      background-color: #eee;
+      padding: 8px;
+      border-radius: 5px;
+    }
+    
+    .qr-code img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    
+    .horario-text {
+      font-size: 14px;
+      flex-grow: 1;
+      text-align: center;
+    }
+    
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      margin: 5px;
+      padding: 10px 20px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    .instagram-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: #E4405F;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    
+    .category {
+      margin: 20px;
+    }
+    
+    .category-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #e67e22;
+      border-bottom: 2px solid #e67e22;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px dashed #ccc;
+      padding: 15px 0;
+      page-break-inside: avoid;
+    }
+    
+    .item-image-container {
+      flex-shrink: 0;
+      margin-right: 15px;
+      position: relative;
+    }
+    
+    .item-image {
+      border-radius: 5px;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid #f39c12;
+    }
+    
+    .no-image {
+      width: 120px;
+      height: 120px;
+      background: #f5f5f5;
+      border: 2px solid #f39c12;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 12px;
+      text-align: center;
+      cursor: pointer;
+    }
+    
+    .gallery-indicator {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background: rgba(231, 76, 60, 0.9);
+      color: white;
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: bold;
+    }
+    
+    .item-details {
+      flex-grow: 1;
+    }
+    
+    .item-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    
+    .item-number {
+      background: #e74c3c;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    
+    .item-name {
+      font-weight: bold;
+      color: #2c3e50;
+      font-size: 18px;
+    }
+    
+    .item-price {
+      font-weight: bold;
+      color: #e74c3c;
+      flex-shrink: 0;
+      margin-left: 15px;
+      font-size: 18px;
+    }
+    
+    .item-weight {
+      font-size: 14px;
+      color: #555;
+      margin-top: 5px;
+      font-style: italic;
+    }
+    
+    .item-descricao {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    
+    .item-video-container {
+      margin-top: 10px;
+    }
+    
+    .video-indicator {
+      display: inline-flex;
+      align-items: center;
+      background: #e74c3c;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 25px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    
+    .video-indicator:hover {
+      background: #c0392b;
+      transform: scale(1.05);
+    }
+    
+    /* Modal para galeria de fotos */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .modal-content-container {
+      position: relative;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 95%;
+      height: 85vh;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: zoomIn 0.3s ease;
+    }
+    
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.2);
+      object-fit: contain;
+    }
+    
+    .modal-caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 800px;
+      text-align: center;
+      color: #ccc;
+      padding: 15px 0;
+      font-size: 18px;
+      background: rgba(0,0,0,0.8);
+      border-radius: 0 0 10px 10px;
+      position: relative;
+      top: -10px;
+    }
+    
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2001;
+      transition: 0.3s;
+      background: rgba(0,0,0,0.5);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .close:hover {
+      color: #e74c3c;
+      background: rgba(255,255,255,0.9);
+      transform: scale(1.1);
+    }
+    
+    .modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.7);
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 15px 20px;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      z-index: 2002;
+    }
+    
+    .modal-nav:hover {
+      background: rgba(231, 76, 60, 0.9);
+      transform: translateY(-50%) scale(1.1);
+    }
+    
+    .modal-prev {
+      left: 20px;
+    }
+    
+    .modal-next {
+      right: 20px;
+    }
+    
+    /* Miniaturas na galeria */
+    .gallery-thumbnails {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+    
+    .thumbnail {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      background: rgba(255,255,255,0.1);
+      padding: 2px;
+    }
+    
+    .thumbnail:hover, .thumbnail.active {
+      opacity: 1;
+      border-color: #e74c3c;
+      transform: scale(1.1);
+    }
+    
+    /* Modal para Vídeos */
+    .video-modal {
+      display: none;
+      position: fixed;
+      z-index: 3000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.95);
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .video-modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 800px;
+      background: black;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    .video-modal iframe, 
+    .video-modal video {
+      width: 100%;
+      height: 450px;
+      border: none;
+    }
+    
+    .video-close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 3001;
+      background: rgba(0,0,0,0.7);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .video-close:hover {
+      background: rgba(231, 76, 60, 0.8);
+      transform: scale(1.1);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes zoomIn {
+      from { transform: translateY(-50%) scale(0.7); opacity: 0; }
+      to { transform: translateY(-50%) scale(1); opacity: 1; }
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 12px;
+      color: #777;
+      border-top: 1px solid #ddd;
+      padding: 15px;
+      background: #f9f9f9;
+    }
+    
+    @media (max-width: 600px) {
+      .container {
+        margin: 10px;
+      }
+      
+      .horario-info {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .item-image-container {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+      
+      .item-image, .no-image {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .modal-content-container {
+        width: 98%;
+        height: 80vh;
+      }
+      
+      .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+      }
+      
+      .modal-nav {
+        padding: 10px 15px;
+        font-size: 18px;
+      }
+      
+      .modal-prev {
+        left: 10px;
+      }
+      
+      .modal-next {
+        right: 10px;
+      }
+      
+      .close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+      }
+      
+      .gallery-thumbnails {
+        flex-wrap: wrap;
+      }
+      
+      .thumbnail {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .video-modal-content {
+        width: 95%;
+      }
+      
+      .video-modal iframe,
+      .video-modal video {
+        height: 250px;
+      }
+      
+      .video-close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Modal para galeria de fotos -->
+  <div id="galleryModal" class="modal">
+    <span class="close">&times;</span>
+    <button class="modal-nav modal-prev">❮</button>
+    <button class="modal-nav modal-next">❯</button>
+    <div class="modal-content-container">
+      <img class="modal-content" id="expandedImg">
+    </div>
+    <div id="imageCaption" class="modal-caption"></div>
+    <div class="gallery-thumbnails" id="galleryThumbnails"></div>
+  </div>
+  
+  <!-- Modal para Vídeos -->
+  <div id="videoModal" class="video-modal">
+    <span class="video-close">&times;</span>
+    <div class="video-modal-content">
+      <div id="videoPlayerContainer"></div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <header>
+      <div class="header-bg">
+        <div class="logo-circle">
+          <img src="https://bolachariaelainemara.github.io/mara/IMG/logo_01.png" alt="Logo" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <div class="header-main-info">
+        <h1> Maya Maria Biscotaria PET</h1>
+        <div class="horario-info">
+          <div class="qr-code">
+            <img src="https://bolachariaelainemara.github.io/mara/IMG/pix_qrcode.png" alt="QR Code para pedidos" onerror="this.style.display='none'">
+          </div>
+          <div class="horario-text">
+            <strong> Encomende com antecedência </strong><br>
+            
+            <div style="margin: 10px 0;">
+              <a href="https://wa.me/5567999848476" target="_blank" class="whatsapp-button">
+                📱 WhatsApp: (67) 99984-8476
+              </a>
+            </div>
+            
+            <div style="display: flex; gap: 10px; justify-content: center; margin: 10px 0;">
+              <a href="https://wa.me/5567999848476" target="_blank" class="instagram-button">
+                💬 Fazer Pedido
+              </a>
+              
+              <a href="https://www.instagram.com/mayamariabiscoitariapet?igsh=MWF3aDN5a3o4M3AwcA==" target="_blank" class="instagram-button">
+                📷 Instagram
+              </a>
+            </div>
+            
+            <small style="display: block; margin-top: 8px;">*Consulte a taxa de entrega para o seu bairro</small>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <main>
+      
+        <section class="category">
+          <h2 class="category-title">BOLACHA DOCE</h2>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/00_01.jpg" 
+                       class="item-image" 
+                       alt="Broa de Milho"
+                       onclick="openGallery(this, 'Broa de Milho', [
+                         '00_01.jpg',
+                         '00_02.jpg',
+                         '00_03.jpg'
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Broa de Milho\', [\'00_01.jpg\',\'00_02.jpg\',\'00_03.jpg\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  <div class="gallery-indicator">+2</div>
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">01.01.01</span>
+                    <span class="item-name">Broa de Milho</span>
+                    <div class="item-weight">150 g</div>
+                  </div>
+                  <div class="item-price">R$ 12,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/beliscao.jpg" 
+                       class="item-image" 
+                       alt="Beliscão de Goiabada"
+                       onclick="openGallery(this, 'Beliscão de Goiabada', [
+                         'beliscao.jpg',
+                         '',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Beliscão de Goiabada\', [\'beliscao.jpg\',\'\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">01.01.02</span>
+                    <span class="item-name">Beliscão de Goiabada</span>
+                    <div class="item-weight">130 g</div>
+                  </div>
+                  <div class="item-price">R$ 15,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/bolachadocedeleite.jpg" 
+                       class="item-image" 
+                       alt="Bolacha Recheada de Doce de Leite"
+                       onclick="openGallery(this, 'Bolacha Recheada de Doce de Leite', [
+                         'bolachadocedeleite.jpg',
+                         '',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Bolacha Recheada de Doce de Leite\', [\'bolachadocedeleite.jpg\',\'\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">01.01.03</span>
+                    <span class="item-name">Bolacha Recheada de Doce de Leite</span>
+                    <div class="item-weight">130 g</div>
+                  </div>
+                  <div class="item-price">R$ 15,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/broa_natacoco.jpg" 
+                       class="item-image" 
+                       alt="Bolacha de Nata e Coco"
+                       onclick="openGallery(this, 'Bolacha de Nata e Coco', [
+                         'broa_natacoco.jpg',
+                         '',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Bolacha de Nata e Coco\', [\'broa_natacoco.jpg\',\'\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">01.01.04</span>
+                    <span class="item-name">Bolacha de Nata e Coco</span>
+                    <div class="item-weight">150 g</div>
+                  </div>
+                  <div class="item-price">R$ 15,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/castanha de caju.jpg" 
+                       class="item-image" 
+                       alt="Bolacha de Castanha de Caju com Canela"
+                       onclick="openGallery(this, 'Bolacha de Castanha de Caju com Canela', [
+                         'castanha de caju.jpg',
+                         '',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Bolacha de Castanha de Caju com Canela\', [\'castanha de caju.jpg\',\'\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">01.01.05</span>
+                    <span class="item-name">Bolacha de Castanha de Caju com Canela</span>
+                    
+                  </div>
+                  <div class="item-price">R$ 15,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <div class="no-image" onclick="openGallery(this, 'Bolacha Coração de Limão', [
+                    '',
+                    '',
+                    ''
+                  ])">
+                    📷<br>Sem<br>Imagem
+                  </div>
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">01.01.06</span>
+                    <span class="item-name">Bolacha Coração de Limão</span>
+                    
+                  </div>
+                  <div class="item-price">R$ 15,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/craquelado_cafe.jpg" 
+                       class="item-image" 
+                       alt="Bolacha Craquelada de café"
+                       onclick="openGallery(this, 'Bolacha Craquelada de café', [
+                         'craquelado_cafe.jpg',
+                         '',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Bolacha Craquelada de café\', [\'craquelado_cafe.jpg\',\'\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">01.01.07</span>
+                    <span class="item-name">Bolacha Craquelada de café</span>
+                    
+                  </div>
+                  <div class="item-price">R$ 15,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/cookie_chocolate.jpg" 
+                       class="item-image" 
+                       alt="Cookie de Chocolate "
+                       onclick="openGallery(this, 'Cookie de Chocolate ', [
+                         'cookie_chocolate.jpg',
+                         'Cracker_parmesão.jpg',
+                         'Cracker_parmesão.jpg'
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Cookie de Chocolate \', [\'cookie_chocolate.jpg\',\'Cracker_parmesão.jpg\',\'Cracker_parmesão.jpg\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  <div class="gallery-indicator">+2</div>
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">01.01.08</span>
+                    <span class="item-name">Cookie de Chocolate </span>
+                    <div class="item-weight">2Un</div>
+                  </div>
+                  <div class="item-price">R$ 8,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+                  <div class="item-video-container">
+                    <button class="video-indicator" onclick="openVideo('Cracker_parmesão.jpg', 'Cookie de Chocolate ')">
+                      🎬 ASSISTIR VÍDEO
+                    </button>
+                  </div>
+                
+              </div>
+            </div>
+          
+        </section>
+      
+        <section class="category">
+          <h2 class="category-title">BOLACHA SALGADA</h2>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/Cracker_parmesão_2.jpg" 
+                       class="item-image" 
+                       alt="Cracker salgadinho de parmesão e orégano"
+                       onclick="openGallery(this, 'Cracker salgadinho de parmesão e orégano', [
+                         'Cracker_parmesão_2.jpg',
+                         'Cracker_parmesão.jpg',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Cracker salgadinho de parmesão e orégano\', [\'Cracker_parmesão_2.jpg\',\'Cracker_parmesão.jpg\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  <div class="gallery-indicator">+1</div>
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">02.02.01</span>
+                    <span class="item-name">Cracker salgadinho de parmesão e orégano</span>
+                    
+                  </div>
+                  <div class="item-price">R$ 15,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/Cracker_parmesão_2.jpg" 
+                       class="item-image" 
+                       alt="Cracker salgadinho de parmesão e orégano"
+                       onclick="openGallery(this, 'Cracker salgadinho de parmesão e orégano', [
+                         'Cracker_parmesão_2.jpg',
+                         'Cracker_parmesão.jpg',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Cracker salgadinho de parmesão e orégano\', [\'Cracker_parmesão_2.jpg\',\'Cracker_parmesão.jpg\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  <div class="gallery-indicator">+1</div>
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">05.02.01</span>
+                    <span class="item-name">Cracker salgadinho de parmesão e orégano</span>
+                    
+                  </div>
+                  <div class="item-price">R$ 0,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+        </section>
+      
+        <section class="category">
+          <h2 class="category-title">SALGADOS</h2>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/chipa.jpg" 
+                       class="item-image" 
+                       alt="Chipa Paraguaia (congelada)"
+                       onclick="openGallery(this, 'Chipa Paraguaia (congelada)', [
+                         'chipa.jpg',
+                         '',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Chipa Paraguaia (congelada)\', [\'chipa.jpg\',\'\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">02.01.01</span>
+                    <span class="item-name">Chipa Paraguaia (congelada)</span>
+                    <div class="item-weight">250 g</div>
+                  </div>
+                  <div class="item-price">R$ 25,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/sopa75.jpg" 
+                       class="item-image" 
+                       alt="Sopa Paraguaia "
+                       onclick="openGallery(this, 'Sopa Paraguaia ', [
+                         'sopa75.jpg',
+                         '',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Sopa Paraguaia \', [\'sopa75.jpg\',\'\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">02.01.02</span>
+                    <span class="item-name">Sopa Paraguaia </span>
+                    <div class="item-weight">75 g</div>
+                  </div>
+                  <div class="item-price">R$ 6,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+            <div class="item">
+              <div class="item-image-container">
+                
+                  <img src="https://bolachariaelainemara.github.io/mara/IMG/sopa100.jpg" 
+                       class="item-image" 
+                       alt="Sopa Paraguaia "
+                       onclick="openGallery(this, 'Sopa Paraguaia ', [
+                         'sopa100.jpg',
+                         '',
+                         ''
+                       ])"
+                       onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'no-image\' onclick=\'openGallery(this, \'Sopa Paraguaia \', [\'sopa100.jpg\',\'\',\'\'])\'>📷<br>Sem<br>Imagem</div>'">
+                  
+                
+              </div>
+              <div class="item-details">
+                <div class="item-top">
+                  <div>
+                    <span class="item-number">02.01.03</span>
+                    <span class="item-name">Sopa Paraguaia </span>
+                    <div class="item-weight">100 g</div>
+                  </div>
+                  <div class="item-price">R$ 8,00</div>
+                </div>
+                
+                
+                <!-- SEÇÃO DO VÍDEO -->
+                
+              </div>
+            </div>
+          
+        </section>
+      
+    </main>
+    
+    <footer>
+      <p style="margin: 0; font-weight: bold;">APRECIE</p>
+      <p style="margin: 10px 0 0 0; font-size: 12px; opacity: 0.8;">
+        Atualizado em 17/11/2025 • Que seu dia sejam iluminadas! ✨
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    // Sistema de galeria para 3 fotos
+    let currentGalleryIndex = 0;
+    let currentGalleryImages = [];
+    let currentGalleryName = '';
+    
+    function openGallery(element, itemName, imageUrls) {
+      // Filtra apenas URLs válidas (3 imagens)
+      currentGalleryImages = imageUrls.filter(url => url && url.trim() !== '');
+      currentGalleryName = itemName;
+      currentGalleryIndex = 0;
+      
+      if (currentGalleryImages.length === 0) {
+        alert('Nenhuma imagem disponível para este item.');
+        return;
+      }
+      
+      const modal = document.getElementById('galleryModal');
+      const modalImg = document.getElementById('expandedImg');
+      const captionText = document.getElementById('imageCaption');
+      const thumbnailsContainer = document.getElementById('galleryThumbnails');
+      
+      // Limpa miniaturas anteriores
+      thumbnailsContainer.innerHTML = '';
+      
+      // Carrega a primeira imagem
+      loadGalleryImage(0, modalImg, captionText);
+      
+      // Cria miniaturas
+      currentGalleryImages.forEach((url, index) => {
+        const thumbnail = document.createElement('img');
+        thumbnail.className = 'thumbnail' + (index === 0 ? ' active' : '');
+        thumbnail.src = url.startsWith('http') ? url : 'https://bolachariaelainemara.github.io/mara/IMG/' + url;
+        thumbnail.alt = `${itemName} - Foto ${index + 1}`;
+        thumbnail.onclick = () => {
+          currentGalleryIndex = index;
+          loadGalleryImage(index, modalImg, captionText);
+          updateThumbnails();
+        };
+        thumbnail.onerror = () => {
+          thumbnail.style.display = 'none';
+        };
+        thumbnailsContainer.appendChild(thumbnail);
+      });
+      
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function loadGalleryImage(index, modalImg, captionText) {
+      const url = currentGalleryImages[index];
+      const fullUrl = url.startsWith('http') ? url : 'https://bolachariaelainemara.github.io/mara/IMG/' + url;
+      
+      // Cria uma nova imagem para pré-carregar
+      const img = new Image();
+      img.onload = function() {
+        modalImg.src = fullUrl;
+        modalImg.alt = `${currentGalleryName} - Foto ${index + 1}`;
+        captionText.innerHTML = `${currentGalleryName} - Foto ${index + 1} de ${currentGalleryImages.length}`;
+      };
+      img.onerror = function() {
+        modalImg.alt = 'Imagem não disponível';
+        captionText.innerHTML = `${currentGalleryName} - Foto ${index + 1} (Não disponível)`;
+      };
+      img.src = fullUrl;
+      
+      updateThumbnails();
+    }
+    
+    function updateThumbnails() {
+      const thumbnails = document.querySelectorAll('.thumbnail');
+      thumbnails.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentGalleryIndex);
+      });
+    }
+    
+    function navigateGallery(direction) {
+      if (currentGalleryImages.length === 0) return;
+      
+      currentGalleryIndex += direction;
+      
+      if (currentGalleryIndex >= currentGalleryImages.length) {
+        currentGalleryIndex = 0;
+      } else if (currentGalleryIndex < 0) {
+        currentGalleryIndex = currentGalleryImages.length - 1;
+      }
+      
+      const modalImg = document.getElementById('expandedImg');
+      const captionText = document.getElementById('imageCaption');
+      loadGalleryImage(currentGalleryIndex, modalImg, captionText);
+    }
+    
+    function closeGallery() {
+      const modal = document.getElementById('galleryModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Sistema de vídeos
+    function openVideo(videoUrl, itemName) {
+      const modal = document.getElementById('videoModal');
+      const container = document.getElementById('videoPlayerContainer');
+      
+      // Limpa conteúdo anterior
+      container.innerHTML = '';
+      
+      let videoHTML = '';
+      
+      // Detecta o tipo de vídeo
+      if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+        // YouTube
+        const videoId = extractYouTubeId(videoUrl);
+        videoHTML = `
+          <iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1" " 
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="${itemName}">
+          </iframe>
+        `;
+      } else if (videoUrl.includes('vimeo.com')) {
+        // Vimeo
+        const videoId = videoUrl.split('/').pop();
+        videoHTML = `
+          <iframe src="https://player.vimeo.com/video/${videoId}?autoplay=1&mute=1&controls=0&modestbranding=1" " 
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  title="${itemName}">
+          </iframe>
+        `;
+      } else if (videoUrl.match(/\.(mp4|webm|ogg)$/i)) {
+        // Vídeo local (MP4, WebM, OGG)
+        videoHTML = `
+            <video autoplay  autoplay muted style="width: 100%; height: 100%;">
+            <source src="${videoUrl.startsWith('http') ? videoUrl : 'https://bolachariaelainemara.github.io/mara/IMG/' + videoUrl}" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+          </video>
+        `;
+      } else {
+        // Link genérico
+        videoHTML = `
+          <div style="padding: 50px; text-align: center; color: white;">
+            <h3>${itemName}</h3>
+            <p>Vídeo disponível em:</p>
+            <a href="${videoUrl}" target="_blank" style="color: #f39c12; font-size: 18px;">
+              🔗 Abrir Vídeo
+            </a>
+          </div>
+        `;
+      }
+      
+      container.innerHTML = videoHTML;
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function extractYouTubeId(url) {
+      const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+      const match = url.match(regExp);
+      return (match && match[7].length === 11) ? match[7] : null;
+    }
+    
+    function closeVideo() {
+      const modal = document.getElementById('videoModal');
+      const container = document.getElementById('videoPlayerContainer');
+      
+      // Para todos os vídeos
+      const iframes = container.getElementsByTagName('iframe');
+      const videos = container.getElementsByTagName('video');
+      
+      for (let iframe of iframes) {
+        iframe.src = '';
+      }
+      
+      for (let video of videos) {
+        video.pause();
+        video.currentTime = 0;
+      }
+      
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Event Listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      const modal = document.getElementById('galleryModal');
+      const closeBtn = document.querySelector('.close');
+      const prevBtn = document.querySelector('.modal-prev');
+      const nextBtn = document.querySelector('.modal-next');
+      
+      const videoModal = document.getElementById('videoModal');
+      const videoClose = document.querySelector('.video-close');
+      
+      // Fecha modal ao clicar no X
+      closeBtn.onclick = closeGallery;
+      videoClose.onclick = closeVideo;
+      
+      // Navegação entre imagens
+      prevBtn.onclick = () => navigateGallery(-1);
+      nextBtn.onclick = () => navigateGallery(1);
+      
+      // Fecha modal ao clicar fora da imagem
+      modal.onclick = function(event) {
+        if (event.target === modal) {
+          closeGallery();
+        }
+      }
+      
+      videoModal.onclick = function(event) {
+        if (event.target === videoModal) {
+          closeVideo();
+        }
+      }
+      
+      // Navegação com teclado
+      document.addEventListener('keydown', function(event) {
+        if (modal.style.display === 'block') {
+          if (event.key === 'Escape') {
+            closeGallery();
+          } else if (event.key === 'ArrowLeft') {
+            navigateGallery(-1);
+          } else if (event.key === 'ArrowRight') {
+            navigateGallery(1);
+          }
+        } else if (videoModal.style.display === 'block') {
+          if (event.key === 'Escape') {
+            closeVideo();
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
