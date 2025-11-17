@@ -100,6 +100,20 @@
       margin-top:6px;
     }
 
+    /* NOVAS CLASSES PARA OS BOTÕES ABAIXO DOS TÍTULOS */
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-start;
+    }
+
     .contact-block{
       display:flex;
       align-items:center;
@@ -131,9 +145,15 @@
       color:#fff;
       text-decoration:none;
       box-shadow: 0 6px 18px rgba(180,45,55,0.08);
+      transition: all 0.3s ease;
     }
     .btn-cta{ background:var(--accent-red); }
     .btn-ws{ background:#25D366; }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(180,45,55,0.15);
+    }
 
     /* MAIN - categorias e itens */
     main{ padding:18px 22px 10px; }
@@ -402,7 +422,22 @@
     /* Responsive */
     @media (max-width:720px){
       .logo-row{ flex-direction:column; gap:12px; }
-      .header-main{ padding-left:0; justify-content:center; text-align:center; }
+      .header-main{ 
+        padding-left:0; 
+        justify-content:center; 
+        text-align:center; 
+        flex-direction: column;
+        gap: 20px;
+      }
+      .title-block{
+        text-align: center;
+      }
+      .buttons-container {
+        align-items: center;
+      }
+      .action-buttons {
+        justify-content: center;
+      }
       .item{ flex-direction:column; align-items:center; text-align:center; }
       .item-image, .no-image{ width:220px; height:220px; }
       .video-modal iframe, .video-modal video{ height:260px; }
@@ -469,25 +504,32 @@
         </div>
 
         <div class="header-main">
-          <div class="title-block">
-            <h1> Maya Maria Biscotaria PET</h1>
-            <div class="subtitle">Encomende com antecedência • <small style="color:var(--muted)">*Consulte taxa de entrega</small></div>
-          </div>
+         <div class="title-block">
+         <h1> Maya Maria Biscotaria PET</h1>
+         <div class="subtitle">Encomende com antecedência • <small style="color:var(--muted)">*Consulte taxa de entrega</small></div>
+    
+        <!-- ÁREA DOS BOTÕES ABAIXO DOS TÍTULOS -->
+         <div class="buttons-container">
+           <a class="btn btn-ws" href="https://wa.me/5567999848476" target="_blank">
+            📱 WhatsApp
+            </a>
+        <div class="action-buttons">
+          <a class="btn btn-cta" href="https://wa.me/5567999848476" target="_blank">
+            💬 Fazer Pedido
+            </a>
+          <a class="btn btn-cta" href="https://www.instagram.com/mayamariabiscoitariapet?igsh=MWF3aDN5a3o4M3AwcA==" target="_blank">
+           📷 Instagram
+           </a>
+      </div>
+    </div>
+  </div>
 
-          <div class="contact-block">
-            <div class="qr-code">
-              <img src="https://mayamariabiscpet.github.io/pet/img/pix_qrcode.png" alt="QR Code para pedidos" onerror="this.style.display='none'">
-            </div>
-
-            <div style="display:flex;flex-direction:column;gap:8px;">
-              <a class="btn btn-ws" href="https://wa.me/5567999848476" target="_blank">📱 WhatsApp</a>
-              <div style="display:flex;gap:8px;justify-content:flex-end;">
-                <a class="btn btn-cta" href="https://wa.me/5567999848476" target="_blank">💬 Fazer Pedido</a>
-                <a class="btn btn-cta" href="https://www.instagram.com/mayamariabiscoitariapet?igsh=MWF3aDN5a3o4M3AwcA==" target="_blank">📷 Instagram</a>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="contact-block">
+    <div class="qr-code">
+      <img src="https://mayamariabiscpet.github.io/pet/img/pix_qrcode.png" alt="QR Code para pedidos" onerror="this.style.display='none'">
+    </div>
+  </div>
+</div>
       </div>
     </header>
 
